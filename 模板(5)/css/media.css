@@ -1,0 +1,21 @@
+@media (min-width: 992px){
+	.navbar-nav-hky{
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: row;
+		flex-direction: row;
+	}
+	.navbar-nav-hky .nav-link{
+		padding: 18px .8rem;
+		color: rgba(255,255,255,0.8);
+	}
+}
+@media (min-width: 991px) {
+	.background {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		z-index: 9999 !important;
+	}
+}

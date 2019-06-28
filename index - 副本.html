@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .svg-1:hover path {
+            d: path("M8,2 L2,8");
+        }
+
+        path {
+            transition: d 0.5s linear;
+        }
+
+        /*---优美的分割线----*/
+
+        body,div{margin: 0; padding: 0;}
+        .test{
+            background-color: yellowgreen;
+            line-height: 0;
+            /*font-size; 0*/
+        }
+        img{
+            width: 260px;
+            heigh: 260px;
+        }
+    </style>
+</head>
+<body>
+<svg class="volumn-controller" width="580" height="400" xmlns="http://www.w3.org/2000/svg">
+    <path class="volumn-path" stroke="#000" d="m100,247c93,-128 284,-129 388,6" opacity="0.5" stroke-width="1"
+          fill="#fff"/>
+    <circle class="drag-button" r="12" cy="247" cx="100" stroke-width="1" stroke="#000" fill="#fff"/>
+    </g>
+</svg>
+<div class="test">
+    <img width="130" height ="130" src ="team-member-3.jpg">
+    <span>abc</span>
+</div>
+<script>
+    // let volonmPath = document.querySelector(".volumn-path");
+    // console.log(volonmPath.getPointAtLength(100));
+    // console.log(volonmPath.getTotalLength())
+    let $volumnController = document.querySelector('.volumn-controller'),
+        $volumnPath = $volumnController.querySelector('.volumn-path');
+    // 得到当前路径的总长度
+    let pathTotalLength = $volumnPath.getTotalLength() >> 0;
+    let points = [];
+    // 起始位置为长度为0的位置
+    let startX = Math.round($volumnPath.getPointAtLength(0).x);
+    // 每隔一个像素距离就保存一下路径上点的坐标
+    for (let i = 0; i < pathTotalLength; i++) {
+        let p = $volumnPath.getPointAtLength(i);
+        // 保存的坐标用四舍五入，可以平衡误差
+        points[Math.round(p.x) - startX] = Math.round(p.y);
+    }
+    let $dragButton = $volumnController.querySelector('.drag-button'),
+        // 得到起始位置相对当前视窗的位置，相当于jQuery.fn.offset
+        dragButtonPos = $dragButton.getBoundingClientRect();
+
+    function movePoint(event) {
+        // 当前鼠标的位置减去圆心起始位置就得到移位偏差，12是半径值，这里先直接写死
+        let diffX = event.clientX - Math.round(dragButtonPos.left + 12);
+        // 需要做个边界判断
+        diffX < 0 && (diffX = 0);
+        diffX >= points.length && (diffX = points.length - 1);
+        // startX是在上面的代码得到的长度为0的位置
+        $dragButton.setAttribute('cx', diffX + startX);
+        // 使用points数组得到y坐标
+        $dragButton.setAttribute('cy', points[diffX]);
+    }
+
+    $dragButton.addEventListener('mousedown', function (event) {
+        document.addEventListener('mousemove', movePoint);
+    });
+    document.addEventListener('mouseup', function () {
+        document.removeEventListener('mousemove', movePoint);
+    });
+</script>
+</body>
+</html>

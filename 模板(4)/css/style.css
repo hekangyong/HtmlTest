@@ -1,0 +1,139 @@
+body {
+    background-color: #f2f2f2;
+}
+
+.navbar {
+    margin-bottom: 0px !important;
+}
+
+.logo {
+    float: left;
+    padding: 10px;
+}
+
+.nav_hky {
+    display: inline-block;
+    padding: 0;
+    list-style: none;
+    margin-bottom: 0px;
+}
+
+.nav_hky li {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.nav_hky li a {
+    padding: 0 13px 0 49px;
+    font-size: 14px;
+    letter-spacing: .8px;
+    font-weight: 500;
+    line-height: 60px;
+    color: rgba(255, 255, 255, .7);
+}
+
+.nav_hky li a i {
+    font-size: 26px;
+    padding-right: 5px;
+    vertical-align: middle;
+}
+
+.nav_hky .active a {
+    color: rgba(255, 255, 255, 1);
+}
+
+.nav_hky .active a i {
+    color: #ffffff;
+}
+
+.nav_hky_a {
+    display: inline-block;
+    padding: 0;
+    list-style: none;
+    margin-bottom: 0px;
+}
+
+.nav_hky_a li {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.nav_hky_a li a i {
+    font-size: 26px;
+    padding-right: 5px;
+    vertical-align: middle;
+}
+
+.nav_hky_a li a {
+    padding: 0 10px;
+    line-height: 60px;
+    color: rgba(255, 255, 255, .7);
+}
+
+.nav-back {
+    background-color: #393D49 !important;
+    border-color: #393D49 !important;
+}
+
+@media (min-width:768px) {
+    .nav-back {
+        border-radius: 0% !important;
+    }
+}
+
+.back_a {
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05);
+    margin-bottom: 15PX;
+    border-radius: 2px;
+}
+
+.ul ul {
+    clear: both;
+    padding: 0;
+    margin: 0;
+    display: inline;
+}
+
+.ul ul li {
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    position: relative;
+}
+
+.ul ul li a {
+    padding: 0 20px;
+    color: #393D49;
+}
+
+.ul ul li .active {
+    color: #5FB878;
+}
+
+.ul ul li a:hover,
+.ul ul li a:focus {
+    text-decoration: none;
+}
+
+.line {
+    display: inline-block;
+    height: 10px;
+    width: 1px;
+    margin: 0 10px;
+    vertical-align: middle;
+    background-color: #e2e2e2;
+}
+
+.ul ul li a .circle {
+    display: inline-block;
+    background-color: #FF5722;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+.newXT{
+    /* display: inline-block; */
+}
+.newXT .xintie {}
